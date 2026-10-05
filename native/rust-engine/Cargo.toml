@@ -1,0 +1,15 @@
+[package]
+name = "sky_engine"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+url = "2.5"
+tokio = { version = "1.38", features = ["full"] }
+reqwest = { version = "0.12", features = ["json"] }
+
+[[bin]]
+name = "sky_engine"
+path = "src/main.rs"

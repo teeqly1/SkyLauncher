@@ -1,0 +1,79 @@
+{
+  "name": "skylauncher",
+  "version": "1.0.0",
+  "description": "Universal Sky Game Launcher inspired by Hydra",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "start": "electron electron/main.js",
+    "electron:dev": "concurrently -k \"vite\" \"electron electron/main.js\"",
+    "electron:build": "npm run build && electron-builder",
+    "build:win": "npm run build && electron-builder --win",
+    "build:linux": "npm run build && electron-builder --linux",
+    "build:all": "npm run build && electron-builder -wl"
+  },
+  "build": {
+    "appId": "com.skylauncher.app",
+    "productName": "SkyLauncher",
+    "npmRebuild": false,
+    "directories": {
+      "output": "build/installer"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "tar.gz"
+      ],
+      "category": "Game"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "SkyLauncher"
+    }
+  },
+  "keywords": [
+    "launcher",
+    "hydra",
+    "games",
+    "torrent",
+    "rust",
+    "typescript",
+    "electron"
+  ],
+  "author": "SkyLauncher Team",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "lucide-react": "^1.52.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "webtorrent": "^3.0.21"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "cross-env": "^10.1.0",
+    "electron": "^33.4.11",
+    "electron-builder": "^26.15.3",
+    "sass-embedded": "^1.105.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2"
+  }
+}

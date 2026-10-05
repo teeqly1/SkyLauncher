@@ -1,0 +1,225 @@
+@use 'variables' as *;
+
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  background-color: $bg-sidebar;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px 14px;
+  gap: 16px;
+
+  .profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    margin-bottom: 4px;
+
+    .profile-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        object-fit: cover;
+        background: #232733;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .username {
+        font-size: 15px;
+        font-weight: 600;
+        color: #f8fafc;
+      }
+    }
+
+    .profile-action-btn {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      color: $text-secondary;
+      background: rgba(255, 255, 255, 0.03);
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+    }
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: $radius-md;
+      font-size: 14px;
+      font-weight: 500;
+      color: $text-secondary;
+      transition: all 0.15s ease;
+      text-decoration: none;
+
+      .nav-icon {
+        width: 18px;
+        height: 18px;
+        color: inherit;
+      }
+
+      .badge {
+        margin-left: auto;
+        font-size: 11px;
+        font-weight: 700;
+        background: $accent-primary;
+        color: #fff;
+        padding: 2px 7px;
+        border-radius: $radius-full;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.04);
+        color: #fff;
+      }
+
+      &.active {
+        background: #242733;
+        color: #fff;
+        font-weight: 600;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+
+        .nav-icon {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .library-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    margin-top: 10px;
+
+    .library-header {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: $text-muted;
+      margin-bottom: 10px;
+      padding-left: 6px;
+      text-transform: uppercase;
+    }
+
+    .library-filter-wrapper {
+      position: relative;
+      margin-bottom: 12px;
+
+      input {
+        width: 100%;
+        background-color: #191b22;
+        border: 1px solid #272a36;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 13px;
+        color: $text-main;
+        transition: border-color 0.2s;
+
+        &::placeholder {
+          color: $text-dim;
+        }
+
+        &:focus {
+          border-color: #4b5268;
+        }
+      }
+    }
+
+    .library-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding-right: 4px;
+
+      .library-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 7px 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+
+        .game-icon {
+          width: 22px;
+          height: 22px;
+          border-radius: 4px;
+          object-fit: cover;
+          background: #242838;
+          flex-shrink: 0;
+        }
+
+        .game-title {
+          font-size: 13px;
+          color: #cbd5e1;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.04);
+
+          .game-title {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .sidebar-footer {
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    .help-button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: $text-secondary;
+      font-size: 13px;
+      font-weight: 500;
+      width: 100%;
+      transition: all 0.2s;
+
+      .help-icon {
+        width: 18px;
+        height: 18px;
+        color: #38bdf8;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+      }
+    }
+  }
+}
